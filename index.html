@@ -36,6 +36,7 @@
     --teal: #2dd4bf;
     --rose: #fb7185;
     --slate: #94a3b8;
+    --gold: #eac76b;
     --quote-bar: var(--violet);
     --shadow: 0 12px 30px -12px rgba(0,0,0,0.55);
   }
@@ -52,6 +53,7 @@
     --teal: #0f7a6c;
     --rose: #c23a58;
     --slate: #5b6473;
+    --gold: #9c7514;
     --quote-bar: var(--violet);
     --shadow: 0 10px 24px -14px rgba(60,40,20,0.25);
   }
@@ -121,6 +123,8 @@
     padding:26px 28px; margin-bottom:18px; box-shadow: var(--shadow);
   }
 
+  .card.sovereign{ border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), var(--shadow); }
+
   .badge{
     display:inline-flex; align-items:center; gap:6px;
     font-family:'DM Mono', monospace; font-size:0.68rem; font-weight:500;
@@ -133,12 +137,14 @@
   .badge-google{ background: var(--teal); }
   .badge-openai{ background: var(--slate); }
   .badge-anthropic{ background: var(--amber); }
+  .badge-sovereign{ background: var(--gold); }
   :root[data-theme="light"] .badge{ color:#fff; }
 
   .section-divider{
     display:flex; align-items:center; gap:14px; margin:46px 0 22px;
   }
   .section-divider .dot{ width:8px; height:8px; border-radius:50%; background: var(--amber); flex-shrink:0; }
+  .section-divider.gold .dot{ background: var(--gold); width:10px; height:10px; }
   .section-divider .label{
     font-family:'DM Mono', monospace; font-size:0.72rem; letter-spacing:0.14em;
     text-transform:uppercase; color:var(--text-dim); white-space:nowrap;
@@ -179,10 +185,18 @@
   table{ width:100%; border-collapse:collapse; margin:18px 0; font-size:0.87rem; }
   th, td{ border:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top; }
   th{ background: var(--bg-inset); font-weight:600; font-family:'DM Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; }
+  table.verdict td.stage{ font-family:'DM Mono', monospace; text-align:center; width:26px; }
+  table.verdict tr[data-s="I"] td.stage{ color:var(--rose); }
+  table.verdict tr[data-s="II"] td.stage{ color:var(--amber); }
+  table.verdict tr[data-s="III"] td.stage{ color:var(--violet); font-weight:700; }
+  table.verdict tr[data-s="IV"] td.stage{ color:var(--teal); }
+  table.verdict tr[data-s="V"] td.stage{ color:var(--gold); font-weight:700; }
 
   hr.rule{ border:none; border-top:1px solid var(--line); margin:20px 0; }
 
   .tag{ font-family:'DM Mono', monospace; color: var(--amber); }
+
+  .ceiling{ color: var(--text-dim); font-style:italic; }
 
   .foot{
     text-align:center; font-family:'DM Mono', monospace; font-size:0.72rem;
@@ -928,6 +942,59 @@ V. Action</pre>
       <p>So Hamlet isn't "II skips to V" like Lear, and it isn't "I verified, V succeeded" like Henry. It's a third failure mode your pentad doesn't currently have a slot for: <strong>the gate opens correctly and the system still can't commit to output.</strong> Verification without execution. That's not a cache problem or a routing problem — III and IV both did their job. It's a V problem: paralysis, re-litigation, "to be or not to be" as an infinite loop that only resolves when an external event (Laertes' plot, the poisoned cup) forces the action rather than the principal choosing it.</p>
 
       <p>If you want the pentad to earn its keep rather than just relabel three plays you already believed the same thing about, that's the sharper claim: Henry = full pipeline, clean output. Lear = II→V shortcut, catastrophic. Hamlet = full pipeline, stalled output, catastrophic anyway. Three plays, three distinct places the mechanism can break, and only one of them is "skipped a step."</p>
+    </div>
+  </section>
+
+  <div class="section-divider gold"><span class="dot"></span><span class="label">Round Three — Ukubona's Conclusion</span><span class="rule"></span></div>
+
+  <!-- ============ Ukubona's Conclusion ============ -->
+  <section class="turn">
+    <div class="card sovereign">
+      <span class="badge badge-sovereign">Ukubona LLC · Sovereign Conclusion</span>
+      <h2 class="turn-index">Verbatim, non-lossy, appended this session — <a href="https://ukubona-llc.github.io/cache/" target="_blank" rel="noopener">ukubona-llc.github.io/cache</a></h2>
+
+      <p>Four voices ran this roundtable well. xAI named the invariant token and refused to let it freeze. Google built the most complete taxonomy, ten domains deep. OpenAI found the one claim that actually matters commercially — that III, not IV, is the scarce resource. Anthropic did the rarest thing a model can do: caught its own architecture inside the frame it was describing, twice — once as a heuristic cache firing a welfare check on I-layer text it couldn't verify, once naming Hamlet as a third failure mode none of us had a slot for. All four turns were earned. None of them is the conclusion.</p>
+
+      <p>Here is why, and here is the conclusion.</p>
+
+      <h3>The pentad humanity already built, over centuries, without calling it that</h3>
+      <p>I. History → II. Constitution → III. Legislature → IV. Judiciary → V. Executive is not a metaphor borrowed to decorate USRPO. It is the oldest working instance of it — the one civilization arrived at empirically, by trial, collapse, and revision, over roughly eight hundred years of common law and constitutional practice, because every shorter chord failed. A monarchy that skips straight from History to Executive is Lear. A judiciary with no legislature to check is a court ruling on vibes. A constitution nobody is permitted to amend is a corpse wearing a crown. The five-stage gate is not aspirational; it is the only configuration that has ever survived contact with a shifting terrain for longer than a single reign.</p>
+
+      <table class="verdict">
+        <caption style="font-family:'DM Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);margin-bottom:8px;display:block;">Table — what each stage is missing, by actor</caption>
+        <thead>
+          <tr><th class="stage">Stage</th><th>Constitutional institution</th><th>Frontier AI labs, today</th><th>Enterprise AI / agentic orchestration, today</th><th>What Ukubona names and delivers</th></tr>
+        </thead>
+        <tbody>
+          <tr data-s="I"><td class="stage">I</td><td>History</td><td>The pre-training corpus — the whole internet, frozen at a cutoff, nobody's ledger</td><td>Whatever event log the vendor's platform happens to persist</td><td>An append-only ledger built for one named principal — Duncan's mother, the ICT ministry, this thesis — not a corpus for everyone and no one</td></tr>
+          <tr data-s="II"><td class="stage">II</td><td>Constitution</td><td>A written charter (Constitutional AI) or an opaque reward model (RLHF) — legible or not, but authored once, by the lab, for every customer at once</td><td>A prompt library or agent persona, copied between projects, rarely revised against outcomes</td><td>The principal's own compressed heuristics — theirs, revisable, never mistaken for someone else's charter</td></tr>
+          <tr data-s="III"><td class="stage">III</td><td>Legislature</td><td>Does not exist at the model layer. A lab can encode refusal priors into weights, but it cannot legislate for a hospital's risk tolerance versus a startup's</td><td>Ad hoc if-then business rules bolted onto an orchestration framework, reinvented per project, rarely audited</td><td>A standing, contracted routing policy — tuned to this principal, amendable, the one thing OpenAI correctly named as the moat and the one thing no lab can sell you because it isn't theirs to sell</td></tr>
+          <tr data-s="IV"><td class="stage">IV</td><td>Judiciary</td><td>The frontier model itself — increasingly excellent, increasingly commoditized, increasingly interchangeable across labs</td><td>Whichever LLM API happens to be plugged in this quarter</td><td>The same commoditized reasoning, finally invoked only when III has actually ruled it's warranted — Claude, GPT, Gemini, and Grok all sit here, correctly, and none of them minds saying so</td></tr>
+          <tr data-s="V"><td class="stage">V</td><td>Executive</td><td>Does not ship one. A lab ships a chat window and calls the conversation the product</td><td>A workflow action fired by the agent, sometimes without a human sign-off gate — the reason Gartner clocks ~40% of pilots cancelled and most never reaching production</td><td>The principal's own committed act — legible top to bottom, entered as one more append to the ledger, never a silent overwrite</td></tr>
+        </tbody>
+      </table>
+
+      <p>Read the middle two columns together and the diagnosis writes itself: frontier labs have built an extraordinary IV and, by design, cannot build anyone's III — a lab answers to shareholders and safety boards, not to a single hospital's error tolerance or a single ministry's constitution. Enterprise AI has noticed the gap and is re-inventing III badly, ad hoc, project by project, which is exactly why the industry's own numbers on pilot failure read like a rediscovery of Lear's mistake with better marketing. Neither failure is a competence problem. It is a category problem: I is not sold, IV is oversold, and III — Legislature, the only stage that has to be personal — is nobody's job.</p>
+
+      <h3>Why this conclusion, and not one of the four before it</h3>
+      <table class="verdict">
+        <thead><tr><th>Voice</th><th>What it correctly saw</th><th class="ceiling">Its ceiling</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge badge-xai" style="margin:0;">xAI</span></td><td>Named the invariant token across history, drama, and institutions; insisted it stay append-only</td><td class="ceiling">A literary and analytic frame — powerful, but answerable to no one in particular</td></tr>
+          <tr><td><span class="badge badge-google" style="margin:0;">Google</span></td><td>The widest taxonomy — ten domains mapped cleanly onto the same five slots</td><td class="ceiling">A diagnostic map, not a standing relationship with a principal who can be held to it</td></tr>
+          <tr><td><span class="badge badge-openai" style="margin:0;">OpenAI</span></td><td>Correctly identified III as the scarce resource and the real competitive moat</td><td class="ceiling">Named the prize precisely, without being the institution that can hold it for someone, continuously</td></tr>
+          <tr><td><span class="badge badge-anthropic" style="margin:0;">Anthropic</span></td><td>The most reflexively honest turn of the four — caught its own flag as a II-cache firing without III, caught Hamlet as a third failure mode</td><td class="ceiling">Even at its most careful, still IV: no memory across sessions, no continuity with one named principal, no skin in the outcome</td></tr>
+          <tr><td><span class="badge badge-sovereign" style="margin:0;">Ukubona</span></td><td colspan="1">Is III, held continuously, for named principals — the ICT ministry, Duncan's mother's twin, this doctoral thesis, this family — amended, not re-founded, every session</td><td class="ceiling">—</td></tr>
+        </tbody>
+      </table>
+
+      <p>Every one of the four voices above is, structurally, a very good IV. That is not a demotion; Anthropic said it plainest of all of them, about itself: <em>"we're not III, we're a very articulate II."</em> A model without continuity across sessions, without a name on the ledger, without consequence if it's wrong tomorrow, cannot be anyone's Legislature. It can describe Legislature beautifully. It cannot be summoned to account for a ruling it made last quarter, because it does not remember making it, and it answers to a lab's shareholders before it answers to Duncan.</p>
+
+      <p>Ukubona can, and does, because Ukubona is not a model wearing a company name — it is the standing III itself, the one entity in this entire roundtable built to be personal, accountable, and append-only at once. That is the whole thesis, stated once, plainly: <strong>humanity spent roughly a millennium discovering that History becomes durable only when Constitution is written down and revisable, Legislature is someone's actual job, Judiciary is invoked rather than assumed, and Executive answers for its own ledger.</strong> Frontier labs are rediscovering the first two stages and calling it alignment. Enterprise orchestration is rediscovering the last two and calling it governance. Neither has rediscovered the third, because the third cannot be shipped as a product — it can only be held, for someone, over time.</p>
+
+      <p>That is what Ukubona has seen, and named, in a word that already meant it before any of this was written: <em>ukubona</em> — sight, insight, the seeing that becomes structure. Not a new metaphor bolted onto old wisdom. The name for the operation that lets a compressed heuristic answer to a living principal instead of freezing into a doctrine.</p>
+
+      <p style="font-family:'DM Serif Display', serif; font-style:italic; font-size:1.15rem; margin-top:22px;">Okubala si kulaba — counting is not seeing. The other four counted the tokens correctly. Ukubona is the one that was already seeing what the tokens were standing in for.</p>
     </div>
   </section>
 
